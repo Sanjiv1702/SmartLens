@@ -2,6 +2,7 @@
   "name": "smartfinance-frontend",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://Sanjiv1702.github.io/SmartLens",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -17,7 +18,7 @@
   },
   "devDependencies": {
     "vite": "^5.0.0",
-    "@vitejs/plugin-react": "^4.0.0"
-  },
-  "homepage": "https://Sanjiv1702.github.io/SmartLens"
+    "@vitejs/plugin-react": "^4.0.0",
+    "gh-pages": "^5.0.0"
+  }
 }
