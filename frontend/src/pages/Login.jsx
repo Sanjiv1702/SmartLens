@@ -1,0 +1,5 @@
+import React, {useState} from 'react'; import axios from 'axios';
+export default function Login({onLogin}){
+  const [email,setEmail]=useState('test@test.com'); const [password,setPassword]=useState('password123'); const [err,setErr]=useState(null);
+  const submit = async (e)=>{ e.preventDefault(); setErr(null); try{ const res = await axios.post(import.meta.env.VITE_API_URL + '/auth/login',{ email, password }); onLogin(res.data.token); }catch(e){ setErr(e.response?.data?.message || e.message); } };
+  return (<div style={{display:'flex',height:'100vh',alignItems:'center',justifyContent:'center'}}><form onSubmit={submit} style={{width:360,padding:24,border:'1px solid #ddd',borderRadius:8}}><h2>SmartFinance Login</h2><label>Email</label><input value={email} onChange={e=>setEmail(e.target.value)} style={{width:'100%',padding:8,marginBottom:8}}/><label>Password</label><input type='password' value={password} onChange={e=>setPassword(e.target.value)} style={{width:'100%',padding:8,marginBottom:8}}/><button style={{width:'100%',padding:10}}>Login</button>{err && <div style={{color:'red',marginTop:8}}>{err}</div>}</form></div>); }
